@@ -3,13 +3,12 @@
 one:
   name: Arely
   email: are@example.com
-  password_digest: my_password
-  token: my_token
+  password_digest: $2a$04$iOfhwahFymCs5weB3BNH/uXkTG65HR.qpW.bNhEjFP3ftli3o5DQC
+  token: '667XQpcnrtL7qZw6SFUTgAhm'
   role: admin
 
 two:
   name: Fer
   email: fer@example.com
-  password_digest: my_password
-  token: my_token
+  password_digest: $2a$04$iOfhwahFymCs5weB3BNH/uXkTG65HR.qpW.bNhEjFP3ftli3o5DQC
   role: user
