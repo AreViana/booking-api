@@ -6,5 +6,9 @@ Rails.application.routes.draw do
       post :sign_in, to: 'authentication#sign_in'
       delete :sign_out, to: 'authentication#sign_out'
     end
+    namespace :admin do
+      post :activities, to: 'activities#create'
+      get :activities, to: 'activities#index'
+    end
   end
 end
