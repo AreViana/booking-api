@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  enum type: {
+  enum kind: {
     online: 'online',
     indoor: 'indoor',
     outdoor: 'outdoor'

@@ -2,12 +2,12 @@
 
 one:
   name: Cooking class
-  type: online
+  kind: online
 
 two:
   name: Yoga
-  type: outdoor
+  kind: outdoor
 
 three:
   name: Dance class
-  type: indoor
+  kind: indoor

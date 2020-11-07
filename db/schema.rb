@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_054137) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
