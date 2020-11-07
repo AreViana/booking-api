@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::API
   include ExceptionHandler
+  include Pundit
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
   before_action :authenticate
+  before_action :authorize_request!
 
   def params_data
     params.require(:data)

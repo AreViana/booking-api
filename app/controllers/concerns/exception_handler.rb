@@ -5,6 +5,7 @@ module ExceptionHandler
   included do
     rescue_from CustomError, with: :custom_error
     rescue_from ArgumentError, with: :argument_error
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
     rescue_from ActiveRecord::RecordNotUnique, with: :unique_contraint
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_record
@@ -25,6 +26,11 @@ module ExceptionHandler
 
   def argument_error(exception)
     render_error(type: 'Argument Error', message: exception.to_s)
+  end
+
+  def user_not_authorized(exception)
+    Rails.logger.error("#{exception.policy.user.email} is #{exception.message}")
+    render_error(type: 'Unauthorize Error', message: 'You cannot perform this action', status: 403)
   end
 
   def record_not_found(exception)

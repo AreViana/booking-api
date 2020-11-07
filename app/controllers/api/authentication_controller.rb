@@ -1,5 +1,6 @@
 class Api::AuthenticationController < ApplicationController
   skip_before_action :authenticate, except: :sign_out
+  skip_before_action :authorize_request!
 
   def sign_up
     Authentication::SignUp.call(signup_params.to_h.deep_symbolize_keys)
