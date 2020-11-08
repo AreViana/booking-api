@@ -9,7 +9,15 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :activities, only: %i[create index] do
         member do
-          post :schedule, to: 'activities#schedule'
+          post :schedule
+        end
+      end
+    end
+
+    namespace :user do
+      resources :activities, only: %i[index] do
+        member do
+          post :book
         end
       end
     end
