@@ -14,11 +14,11 @@ class Api::Admin::ActivitiesController < ApplicationController
   private
 
   def create_params
-    params_data.permit(:name, :kind)
+    params_data.permit(:name, :kind).to_h.deep_symbolize_keys
   end
 
   def schedule_params
-    params_data.permit(:place, :date).merge(owner_id: current_user.id)
+    params_data.permit(:place, :date).merge(owner_id: current_user.id).to_h.deep_symbolize_keys
   end
 
   def authorize_request!

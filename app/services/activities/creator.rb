@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 class Activities::Creator < BaseService
-  def initialize(params)
-    @params = params
+  def initialize(name:, kind:)
+    @name = name
+    @kind = kind
   end
 
   def call
-    Activity.create(params)
+    Activity.create!(name: name, kind: kind)
   end
 
   private
 
-  attr_reader :params
+  attr_reader :name, :kind
 end
