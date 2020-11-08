@@ -7,8 +7,11 @@ Rails.application.routes.draw do
       delete :sign_out, to: 'authentication#sign_out'
     end
     namespace :admin do
-      post :activities, to: 'activities#create'
-      get :activities, to: 'activities#index'
+      resources :activities, only: %i[create index] do
+        member do
+          post :schedule, to: 'activities#schedule'
+        end
+      end
     end
   end
 end
