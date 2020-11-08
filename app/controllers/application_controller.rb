@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate
   before_action :authorize_request!
+  after_action :wrap_response
 
   def params_data
     params.require(:data)
@@ -21,6 +22,14 @@ class ApplicationController < ActionController::API
       ActiveSupport::SecurityUtils.secure_compare(token, user.token)
       user
     end
+  end
+
+  def wrap_response
+    body = response.body
+    return unless body.present?
+
+    data = JSON.parse(body)
+    response.body = { data: data }.to_json
   end
 
   def current_user
