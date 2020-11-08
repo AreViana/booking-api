@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate
-    authenticate_or_request_with_http_token do |token, _options|
+    authenticate_or_request_with_http_token('Application', authenticate_error) do |token, _options|
       user = User.find_by(token: token)
       raise ActionController::BadRequest.new('Invalid token') unless user
 
@@ -23,6 +23,16 @@ class ApplicationController < ActionController::API
       ActiveSupport::SecurityUtils.secure_compare(token, user.token)
       user
     end
+  end
+
+  def authenticate_error
+    {
+      error: {
+        type: 'Unauthorize Error',
+        message: 'You are not authorize',
+        details: {}
+      }
+    }.to_json
   end
 
   def validate_data_object!

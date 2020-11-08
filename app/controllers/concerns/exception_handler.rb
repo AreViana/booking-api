@@ -30,7 +30,7 @@ module ExceptionHandler
 
   def user_not_authorized(exception)
     Rails.logger.error("#{exception.policy.user.email} is #{exception.message}")
-    render_error(type: 'Unauthorize Error', message: 'You cannot perform this action', status: 403)
+    render_error(type: 'Forbidden Error', message: 'You cannot perform this action', status: 403)
   end
 
   def record_not_found(exception)
