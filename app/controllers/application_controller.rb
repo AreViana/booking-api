@@ -17,7 +17,11 @@ class ApplicationController < ActionController::API
   def authenticate
     authenticate_or_request_with_http_token('Application', authenticate_error) do |token, _options|
       user = User.find_by(token: token)
-      raise ActionController::BadRequest.new('Invalid token') unless user
+      raise CustomError.new(
+        type: 'Unauthorize Error',
+        status: :unauthorized,
+        message: 'Invalid token'
+      ) unless user
 
       # To prevent timing attacks
       ActiveSupport::SecurityUtils.secure_compare(token, user.token)
