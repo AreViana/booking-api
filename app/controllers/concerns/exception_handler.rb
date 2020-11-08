@@ -6,6 +6,7 @@ module ExceptionHandler
     rescue_from CustomError, with: :custom_error
     rescue_from ArgumentError, with: :argument_error
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+    rescue_from ActiveRecord::NotNullViolation, with: :null_contraint
     rescue_from ActiveRecord::RecordNotUnique, with: :unique_contraint
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_record
@@ -17,6 +18,11 @@ module ExceptionHandler
 
   def custom_error(exception = {})
     render_error(exception.to_h)
+  end
+
+  def null_contraint(exception)
+    Rails.logger.error(exception.cause)
+    render_error(type: 'Validation Error', message: 'Record attributes cannot be null or empty', status: :unprocessable_entity)
   end
 
   def unique_contraint(exception)
