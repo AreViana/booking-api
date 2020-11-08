@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Activities::Finder < BaseService
-  def initialize(id = null)
+  def initialize(id = nil)
     @id = id
   end
 

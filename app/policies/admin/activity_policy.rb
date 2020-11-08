@@ -1,13 +1,13 @@
 class Admin::ActivityPolicy < ApplicationPolicy
-  def index
+  def index?
     user.admin?
   end
 
-  def create
+  def create?
     user.admin?
   end
 
-  def schedule
+  def schedule?
     user.admin?
   end
 end
