@@ -11,4 +11,5 @@ two:
   name: Fer
   email: fer@example.com
   password_digest: $2a$04$iOfhwahFymCs5weB3BNH/uXkTG65HR.qpW.bNhEjFP3ftli3o5DQC
+  token: '337XHpcnrtL7qZw6SFUTgEhd'
   role: user
