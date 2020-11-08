@@ -159,6 +159,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   listen (~> 3.2)
+  mail (~> 2.7, >= 2.7.1)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   pundit (~> 2.1)

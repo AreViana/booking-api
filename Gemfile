@@ -23,6 +23,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Manage enviroment variables
 gem 'dotenv-rails'
+# Upgrade mail gem
+gem 'mail', '~> 2.7', '>= 2.7.1'
 # Manage permissions
 gem 'pundit', '~> 2.1'
 
