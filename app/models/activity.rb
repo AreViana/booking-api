@@ -4,4 +4,6 @@ class Activity < ApplicationRecord
     indoor: 'indoor',
     outdoor: 'outdoor'
   }
+
+  has_many :schedules
 end

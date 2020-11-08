@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place: El Salvador, San Salvador
+  date: 2020-11-07T23:04:19.725Z
+  owner_id: 1
+
+two:
+  place: Mexico, CDMX
+  date: 2020-11-07T23:04:19.725Z
+  owner_id: 1
