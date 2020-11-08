@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate
   before_action :authorize_request!
+  before_action :validate_data_object!
   after_action :wrap_response
 
   def params_data
@@ -22,6 +23,12 @@ class ApplicationController < ActionController::API
       ActiveSupport::SecurityUtils.secure_compare(token, user.token)
       user
     end
+  end
+
+  def validate_data_object!
+    return if !params[:data] || params[:data].is_a?(ActionController::Parameters)
+
+    raise ActionController::BadRequest.new('params data must be an object')
   end
 
   def wrap_response
