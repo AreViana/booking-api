@@ -24,11 +24,13 @@ ActiveRecord::Schema.define(version: 2020_11_08_015528) do
   end
 
   create_table "bookings", force: :cascade do |t|
+    t.string "ticket", null: false
     t.bigint "user_id", null: false
     t.bigint "schedule_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
+    t.index ["ticket"], name: "index_bookings_on_ticket", unique: true
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
