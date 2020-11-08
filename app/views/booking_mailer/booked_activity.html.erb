@@ -1,0 +1,15 @@
+<% content_for :content_mailer do %>
+  <h1>Hi, <%= @user.name %>!✨</h1>
+      <p>
+        Your activity <b><%= @activity.name %></b> has been booked.🚀<br>
+        Check the details:
+      </p>
+      <p>
+        <li>Ticket code: <b><%= @ticket %></b>.<br>
+        <li>Place: <%= @schedule.place %>.<br>
+        <li>Date: <%= @schedule.date.strftime('%F') %>.<br>
+        <li>Hour: <%= @schedule.date.strftime('%H:%M') %>.<br>
+      </p>
+      <p>Thanks for use Fitu-app.<br> Have a great day!</p>
+      <h3>Fitu Team💚</h3>
+<% end %>

@@ -11,12 +11,12 @@ class Activities::Booker < BaseService
   def call
     activity = Activity.find(id)
     schedule = activity.schedules.find(schedule_id)
-    schedule.bookings.create!(
+    booking = schedule.bookings.create!(
       user: user,
       ticket: SecureRandom.hex(10)
     )
 
-    # TODO: NOTIFY
+    BookingMailer.booked_activity(user, activity, schedule, booking.ticket).deliver_later
     activity
   end
 
