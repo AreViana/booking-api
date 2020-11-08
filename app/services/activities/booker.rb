@@ -17,7 +17,7 @@ class Activities::Booker < BaseService
     )
 
     BookingMailer.booked_activity(user, activity, schedule, booking.ticket).deliver_later
-    activity
+    BookingRepresenter.new(booking)
   end
 
   private

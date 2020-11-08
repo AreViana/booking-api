@@ -6,9 +6,9 @@ class Activities::Finder < BaseService
   end
 
   def call
-    return Activity.find(id) if id
+    return ActivityRepresenter.new(Activity.find(id)) if id
 
-    Activity.all
+    ActivityRepresenter.for_collection.new(Activity.all)
   end
 
   private

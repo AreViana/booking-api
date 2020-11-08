@@ -10,12 +10,13 @@ class Activities::Scheduler < BaseService
 
   def call
     activity = Activity.find(id)
-    activity.schedules.create!(
+    schedule = activity.schedules.create!(
       place: place,
       date: date,
       owner_id: owner_id
     )
-    activity
+
+    ScheduleRepresenter.new(schedule)
   end
 
   private

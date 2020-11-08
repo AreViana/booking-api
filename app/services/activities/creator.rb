@@ -7,7 +7,8 @@ class Activities::Creator < BaseService
   end
 
   def call
-    Activity.create!(name: name, kind: kind)
+    activity = Activity.create!(name: name, kind: kind)
+    ActivityRepresenter.new(activity)
   end
 
   private
