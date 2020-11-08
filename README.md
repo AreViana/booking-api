@@ -1,24 +1,40 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Booking activities API
+This API has 3 modules: Authentication, Admin, User
+* Admin module allows to list, create and schedule activities
+* User module allows to list and book existing activities
+* The Authentication module has the basic 3 actions: signUp, signIn and signOut
+
+## API Architecture
+The API has a layered architecture:
+- Models
+- Services
+- Representers
+- Policies
+- Controller
+- Views
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version `2.7.2`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Database set up
+  ```
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  ```
 
 * How to run the test suite
+  ```
+  rails test
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+* How to run local server
+  ```
+  rails s
+  ```
 
-* Deployment instructions
-
-* ...
+* Services used:
+  - `ActionMailer::MailDeliveryJob`
