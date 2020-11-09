@@ -30,6 +30,8 @@ gem 'pundit', '~> 2.1'
 # Represent json responses
 gem 'representable', '~> 3.0', '>= 3.0.4'
 gem 'multi_json'
+# Add swagger
+gem 'swagger-blocks'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
