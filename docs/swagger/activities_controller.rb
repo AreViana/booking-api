@@ -8,7 +8,7 @@ class Swagger::ActivitiesController
       key :description, 'Display all the activities'
       key :operationId, 'AdminActivityIndex'
       key :tags, [
-        'admin'
+        'Admin'
       ]
       response 200 do
         key :description, 'activities response'
@@ -36,7 +36,7 @@ class Swagger::ActivitiesController
       key :description, 'Admin can create activities'
       key :operationId, 'ActivityCreate'
       key :tags, [
-        'admin'
+        'Admin'
       ]
       parameter do
         key :name, :data
@@ -72,13 +72,13 @@ class Swagger::ActivitiesController
     end
   end
 
-  swagger_path '/user/activities/{id}/schedule' do
+  swagger_path '/admin/activities/{id}/schedule' do
     operation :post do
       key :summary, 'Schedule activities'
       key :description, 'Admin can schedule activities'
       key :operationId, 'ActivitySchedule'
       key :tags, [
-        'admin'
+        'Admin'
       ]
       parameter do
         key :name, :id
@@ -134,7 +134,7 @@ class Swagger::ActivitiesController
       key :description, 'Display all the activities'
       key :operationId, 'UserActivityIndex'
       key :tags, [
-        'user'
+        'User'
       ]
       response 200 do
         key :description, 'activities response'
@@ -162,7 +162,7 @@ class Swagger::ActivitiesController
       key :description, 'User can book activities'
       key :operationId, 'ActivityBook'
       key :tags, [
-        'user'
+        'User'
       ]
       parameter do
         key :name, :id
